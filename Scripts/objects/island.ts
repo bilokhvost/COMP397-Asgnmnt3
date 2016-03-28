@@ -7,7 +7,7 @@ module objects {
         constructor() {
             super("island");
             
-           this._speed.y = 5; //island speed
+           this._speed.x = -5; //island speed
            this._reset(this._topBounds);
            this.name = "island";
         }
@@ -16,22 +16,23 @@ module objects {
         protected _checkBounds(value:number):void {
             // check to see if the top of the island 
             // is outside the viewport         
-            if(this.y >= value) {
+            if(this.x >= value) {
                 this._reset(this._topBounds);
             }
         }
         
         // reset the ocean offscreen
         protected _reset(value:number):void {          
-            this.y = value;
-            this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
+            this.x = value;
+            this.y = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
         }
         
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
             // scroll the island 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
+            console.log(this.x);
             this._checkBounds(this._bottomBounds);
         }
     }

@@ -12,7 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Island() {
             _super.call(this, "island");
-            this._speed.y = 5; //island speed
+            this._speed.x = -5; //island speed
             this._reset(this._topBounds);
             this.name = "island";
         }
@@ -20,19 +20,20 @@ var objects;
         Island.prototype._checkBounds = function (value) {
             // check to see if the top of the island 
             // is outside the viewport         
-            if (this.y >= value) {
+            if (this.x >= value) {
                 this._reset(this._topBounds);
             }
         };
         // reset the ocean offscreen
         Island.prototype._reset = function (value) {
-            this.y = value;
-            this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
+            this.x = value;
+            this.y = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Island.prototype.update = function () {
             // scroll the island 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
+            console.log(this.x);
             this._checkBounds(this._bottomBounds);
         };
         return Island;

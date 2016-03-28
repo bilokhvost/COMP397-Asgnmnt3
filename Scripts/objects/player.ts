@@ -17,27 +17,27 @@ module objects {
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
 
-            this._leftBounds = this.width * 0.5;
-            this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
+            this._leftBounds = this.height * 0.75;
+            this._rightBounds = config.Screen.HEIGHT - (this.height * 0.75);
 
-            this.y = 430;
+            this.x = 120;
         }
 
         // PRIVATE METHODS
         private _checkBounds(): void {
-            if (this.x < this._leftBounds) {
-                this.x = this._leftBounds;
+            if (this.y < this._leftBounds) {
+                this.y = this._leftBounds;
             }
 
-            if (this.x > this._rightBounds) {
-                this.x = this._rightBounds;
+            if (this.y > this._rightBounds) {
+                this.y = this._rightBounds;
             }
         }
 
 
         // PUBLIC METHODS
         public update(): void {
-            this.x = stage.mouseX;
+            this.y = stage.mouseY;
             this._checkBounds();
         }
     }
