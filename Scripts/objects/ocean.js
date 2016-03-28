@@ -13,14 +13,14 @@ var objects;
         function Ocean() {
             _super.call(this, "ocean");
             this._speed.x = 5; //ocean speed
-            this._reset(-90);
+            this._reset(-690);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         Ocean.prototype._checkBounds = function (value) {
             // check to see if the top of the ocean 
             // is met the top of the scene
             if (this.x >= value) {
-                this._reset(-90);
+                this._reset(-690);
             }
         };
         // reset the ocean offscreen
