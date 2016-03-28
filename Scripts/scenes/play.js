@@ -19,9 +19,9 @@ var scenes;
             this._cloudCount = 3;
             // Instantiate Cloud array
             this._clouds = new Array();
-            // added ocean to the scene
-            this._ocean = new objects.Ocean();
-            this.addChild(this._ocean);
+            // added grass to the scene
+            this._grass = new objects.Grass();
+            this.addChild(this._grass);
             // added island to the scene
             this._island = new objects.Island();
             this.addChild(this._island);
@@ -41,7 +41,7 @@ var scenes;
         // PLAY Scene updates here
         Play.prototype.update = function () {
             var _this = this;
-            this._ocean.update();
+            this._grass.update();
             this._island.update();
             this._player.update();
             this._clouds.forEach(function (cloud) {

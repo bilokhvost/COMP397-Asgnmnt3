@@ -25,19 +25,19 @@ var objects;
         GameObject.prototype._checkBounds = function (value) {
             var resetValue = 0;
             // check if y value has met the reset criteria
-            if (this.y >= value) {
+            if (this.x >= value) {
                 this._reset(resetValue);
             }
         };
         // Reset the Object offscreen
         GameObject.prototype._reset = function (value) {
-            this.y = value;
+            this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         GameObject.prototype.update = function () {
             var boundValue = 0;
             // scroll the ocean 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
             this._checkBounds(boundValue);
         };
         return GameObject;

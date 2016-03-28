@@ -34,14 +34,14 @@ module objects {
         protected _checkBounds(value:number):void {
             var resetValue:number = 0;
             // check if y value has met the reset criteria
-            if(this.y >= value) {
+            if(this.x >= value) {
                 this._reset(resetValue);
             }
         }
         
         // Reset the Object offscreen
         protected _reset(value:number):void {
-            this.y = value;
+            this.x = value;
         }
         
         
@@ -49,7 +49,7 @@ module objects {
         public update():void {
             var boundValue:number = 0;
             // scroll the ocean 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
             this._checkBounds(boundValue);
         }
     }

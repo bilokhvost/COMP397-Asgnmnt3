@@ -5,37 +5,36 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // OCEAN CLASS ++++++++++++++++++++++++++++++++++++
-    var Ocean = (function (_super) {
-        __extends(Ocean, _super);
+    // GRASS CLASS ++++++++++++++++++++++++++++++++++++
+    var Grass = (function (_super) {
+        __extends(Grass, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Ocean() {
-            _super.call(this, "ocean");
-            this._speed.x = -5; //ocean speed
+        function Grass() {
+            _super.call(this, "grass");
+            this._speed.x = -5; //grass speed
             this._reset(0);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Ocean.prototype._checkBounds = function (value) {
-            // check to see if the top of the ocean 
-            // is met the top of the scene
+        Grass.prototype._checkBounds = function (value) {
+            // check to see if the right bound of the grass is met the right bound of the scene
             if (this.x <= value) {
                 this._reset(0);
             }
         };
-        // reset the ocean offscreen
-        Ocean.prototype._reset = function (value) {
+        // reset the grass offscreen
+        Grass.prototype._reset = function (value) {
             this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Ocean.prototype.update = function () {
-            // scroll the ocean 5 px per frame
+        Grass.prototype.update = function () {
+            // scroll the grass 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(-640);
         };
-        return Ocean;
+        return Grass;
     }(objects.GameObject));
-    objects.Ocean = Ocean;
+    objects.Grass = Grass;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=ocean.js.map
+//# sourceMappingURL=grass.js.map

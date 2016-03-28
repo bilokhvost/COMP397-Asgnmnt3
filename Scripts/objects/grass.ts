@@ -1,27 +1,26 @@
 module objects {
-    // OCEAN CLASS ++++++++++++++++++++++++++++++++++++
-    export class Ocean extends objects.GameObject {
+    // GRASS CLASS ++++++++++++++++++++++++++++++++++++
+    export class Grass extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
-            super("ocean");
+            super("grass");
             
-           this._speed.x = -5; //ocean speed
+           this._speed.x = -5; //grass speed
            this._reset(0);
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         protected _checkBounds(value:number):void {
-            // check to see if the top of the ocean 
-            // is met the top of the scene
+            // check to see if the right bound of the grass is met the right bound of the scene
             
             if(this.x <= value) {
                 this._reset(0);
             }
         }
         
-        // reset the ocean offscreen
+        // reset the grass offscreen
         protected _reset(value:number):void {
             this.x = value;
         }
@@ -29,7 +28,7 @@ module objects {
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
-            // scroll the ocean 5 px per frame
+            // scroll the grass 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(-640);
         }
