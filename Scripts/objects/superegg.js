@@ -5,39 +5,39 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // EGG CLASS ++++++++++++++++++++++++++++++++++++
-    var Egg = (function (_super) {
-        __extends(Egg, _super);
+    // SUPEREGG CLASS ++++++++++++++++++++++++++++++++++++
+    var SuperEgg = (function (_super) {
+        __extends(SuperEgg, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Egg() {
-            _super.call(this, "egg");
-            this._speed.x = -5; //egg speed
+        function SuperEgg() {
+            _super.call(this, "superegg");
+            this._speed.x = -50; //superegg speed
             this._reset(this._rightBounds);
-            this.name = "egg";
+            this.name = "superegg";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Egg.prototype._checkBounds = function (value) {
-            // check to see if the right part of the egg is outside the viewport         
+        SuperEgg.prototype._checkBounds = function (value) {
+            // check to see if the right part of the superegg is outside the viewport         
             if (this.x <= value) {
                 this._reset(this._rightBounds);
             }
         };
-        // reset the egg offscreen
-        Egg.prototype._reset = function (value) {
+        // reset the superegg offscreen
+        SuperEgg.prototype._reset = function (value) {
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
             console.log(this._topBounds);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Egg.prototype.update = function () {
+        SuperEgg.prototype.update = function () {
             // scroll the egg 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(this._leftBounds);
         };
-        return Egg;
+        return SuperEgg;
     }(objects.GameObject));
-    objects.Egg = Egg;
+    objects.SuperEgg = SuperEgg;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=egg.js.map
+//# sourceMappingURL=superegg.js.map

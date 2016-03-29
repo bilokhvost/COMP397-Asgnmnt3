@@ -22,6 +22,7 @@ var assetData:objects.Asset[] = [
     {id: "grass", src:"../../Assets/images/grass2.gif"},
     {id: "rabbit", src:"../../Assets/images/rabbit.png"},
     {id: "egg", src:"../../Assets/images/egg1.png"},
+    {id: "superegg", src:"../../Assets/images/superEgg.png"},
     {id: "cloud", src:"../../Assets/images/eagle22.png"},
 ];
 

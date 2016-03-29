@@ -25,6 +25,9 @@ var scenes;
             // added egg to the scene
             this._egg = new objects.Egg();
             this.addChild(this._egg);
+            // added super egg to the scene
+            this._superegg = new objects.SuperEgg();
+            this.addChild(this._superegg);
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
@@ -43,12 +46,14 @@ var scenes;
             var _this = this;
             this._grass.update();
             this._egg.update();
+            this._superegg.update();
             this._player.update();
             this._clouds.forEach(function (cloud) {
                 cloud.update();
                 _this._collision.check(cloud);
             });
             this._collision.check(this._egg);
+            this._collision.check(this._superegg);
         };
         return Play;
     }(objects.Scene));

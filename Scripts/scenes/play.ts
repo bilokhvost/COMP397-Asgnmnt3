@@ -4,6 +4,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _grass: objects.Grass;
         private _egg: objects.Egg;
+        private _superegg: objects.SuperEgg;
         private _clouds: objects.Cloud[];
         private _cloudCount:number;
         private _player: objects.Player;
@@ -33,6 +34,10 @@ module scenes {
             this._egg = new objects.Egg();
             this.addChild(this._egg);
 
+                 // added super egg to the scene
+            this._superegg = new objects.SuperEgg();
+            this.addChild(this._superegg);   
+
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
@@ -54,6 +59,9 @@ module scenes {
         public update(): void {
             this._grass.update();
             this._egg.update();
+            
+            
+            this._superegg.update();
            
             this._player.update();
            
@@ -63,6 +71,7 @@ module scenes {
             });
             
             this._collision.check(this._egg);
+             this._collision.check(this._superegg);
         }
         
         
