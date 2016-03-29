@@ -15,8 +15,10 @@ var scenes;
         // PUBLIC METHODS ++++++++++++++++++++
         // Start Method
         End.prototype.start = function () {
+            //  createjs.Sound.play("musicFinal", { loop: -1 });
             //Add Menu Label
-            this._endLabel = new objects.Label("END SCENE", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            //this.score=Play._score;
+            this._endLabel = new objects.Label("SCORE: ", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._endLabel);
             // add the BACK button to the OVER scene
             this._restartButton = new objects.Button("RestartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);

@@ -24,6 +24,12 @@ var assetData:objects.Asset[] = [
     {id: "egg", src:"../../Assets/images/egg.png"},
     {id: "superegg", src:"../../Assets/images/superEgg.png"},
     {id: "eagle", src:"../../Assets/images/eagle.png"},
+    {id: "music", src:"../../Assets/audio/bunnyhop.ogg"}, 
+    {id: "musicFinal", src:"../../Assets/audio/eastersong.ogg"},
+    {id: "eagleEat", src:"../../Assets/audio/eagle.ogg"},
+    {id: "eggPick", src:"../../Assets/audio/egg.ogg"},
+    {id: "superPick", src:"../../Assets/audio/superEgg.ogg"},
+    {id: "bell", src:"../../Assets/audio/bell.ogg"},
 ];
 
 function preload() {
@@ -51,6 +57,9 @@ function init(): void {
     
     // sets up our stats counting workflow
     setupStats(); 
+    
+     // add background music
+    createjs.Sound.play("music", { loop: -1 });
     
     // set initial scene
     scene = config.Scene.MENU;

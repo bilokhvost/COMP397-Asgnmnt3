@@ -33,7 +33,6 @@ var objects;
         Eagle.prototype.update = function () {
             // scroll the eagle down the screen and check wheather it is visible
             this.x -= this._speed.x;
-            console.log(this._speed.y);
             this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };

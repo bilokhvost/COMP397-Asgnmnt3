@@ -11,12 +11,13 @@ module managers {
             return Math.sqrt(Math.pow((endPoint.x - startPoint.x),2) + Math.pow(endPoint.y - startPoint.y,2))
         }
         
-        public check(object:objects.GameObject) {
+        public check(object:objects.GameObject):boolean {
             var startPoint:createjs.Point = new createjs.Point();
             var endPoint:createjs.Point = new createjs.Point();
             var playerHalfHeight:number = this._player.height * 0.5;
             var objectHalfHeight:number = object.height * 0.5;
             var minimumDistance:number = playerHalfHeight + objectHalfHeight;
+            var isCollided = false;
             
             startPoint.x = this._player.x;
             startPoint.y = this._player.y;
@@ -31,22 +32,23 @@ module managers {
                 
                 // check if it's an egg hit
                 if(object.name === "egg") {
-                  
+                    isCollided=true;
                     console.log("egg hit!");
                 }
                 
                 // check if it's a cloud hit
                 if(object.name === "eagle") {
                     console.log("eagle hit!");
-                    
+                    isCollided=true;
                 }
                 
                  // check if it's a super egg hit
                 if(object.name === "superegg") {
-                  
+                    isCollided=true;
                     console.log("superegg hit!");
                 }
             }
+            return isCollided;
         }
     }
 }

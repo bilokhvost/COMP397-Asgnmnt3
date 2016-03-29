@@ -4,6 +4,7 @@ module scenes {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _endLabel: objects.Label;
         private _restartButton: objects.Button;
+        private score:number;
         
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
@@ -15,9 +16,12 @@ module scenes {
         
         // Start Method
         public start(): void {
+          //  createjs.Sound.play("musicFinal", { loop: -1 });
             //Add Menu Label
+            
+            //this.score=Play._score;
             this._endLabel = new objects.Label(
-                "END SCENE", "60px Consolas",
+                "SCORE: " , "60px Consolas",
                 "#000000",
                 config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._endLabel);
@@ -49,6 +53,7 @@ module scenes {
         private _restartButtonClick(event: createjs.MouseEvent) {
             // Switch to the INTRO Scene
             scene = config.Scene.MENU;
+           
             changeScene();
         }
     }

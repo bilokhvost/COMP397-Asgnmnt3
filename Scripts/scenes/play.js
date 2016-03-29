@@ -17,6 +17,9 @@ var scenes;
         Play.prototype.start = function () {
             // Set Eagle Count
             this._eagleCount = 3;
+            //set initial score and number of lifes
+            this._score = 0;
+            this._life = 100;
             // Instantiate Eagle array
             this._eagles = new Array();
             // added grass to the scene
@@ -36,6 +39,12 @@ var scenes;
                 this._eagles[eagle] = new objects.Eagle();
                 this.addChild(this._eagles[eagle]);
             }
+            //add scoreText label to the scene
+            this._scoreText = new objects.Label("Score: " + this._score.toString(), "35px Consolas", "#000000", 10, 25, false);
+            this.addChild(this._scoreText);
+            //add lifeText label to the scene
+            this._lifeText = new objects.Label("Lives: " + this._life.toString(), "35px Consolas", "#000000", 420, 25, false);
+            this.addChild(this._lifeText);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -50,10 +59,42 @@ var scenes;
             this._player.update();
             this._eagles.forEach(function (eagle) {
                 eagle.update();
-                _this._collision.check(eagle);
+                if (_this._collision.check(eagle)) {
+                    _this._life -= 1;
+                    createjs.Sound.play("bell");
+                    _this.checkLife(_this._life);
+                    _this._lifeText.text = "Lives: " + _this._life;
+                }
             });
-            this._collision.check(this._egg);
-            this._collision.check(this._superegg);
+            if (this._collision.check(this._egg)) {
+                this._score += 10;
+                this.removeChild(this._egg);
+                createjs.Sound.play("eggPick");
+                this._scoreText.text = "Score: " + this._score;
+                console.log(this._score);
+                this._egg = new objects.Egg();
+                this.addChild(this._egg);
+            }
+            if (this._collision.check(this._superegg)) {
+                this._score += 50;
+                this._life += 10;
+                this.removeChild(this._superegg);
+                createjs.Sound.play("superPick");
+                console.log(this._score);
+                this._scoreText.text = "Score: " + this._score;
+                this._lifeText.text = "Lives: " + this._life;
+                this._superegg = new objects.SuperEgg();
+                this.addChild(this._superegg);
+            }
+        };
+        //check the amount of lives, if it is 0, the game is over
+        Play.prototype.checkLife = function (value) {
+            if (value <= 0) {
+                createjs.Sound.play("eagleEat");
+                // Switch to the Game Over Scene
+                scene = config.Scene.END;
+                changeScene();
+            }
         };
         return Play;
     }(objects.Scene));
