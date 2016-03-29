@@ -15,21 +15,30 @@ var objects;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._leftBounds = this.height * 0.75;
-            this._rightBounds = config.Screen.HEIGHT - (this.height * 0.75);
-            this.x = 120;
+            this._rightBounds = config.Screen.WIDTH - (this.width * 0.75);
+            this._topBounds = 50;
+            this._bottomBounds = config.Screen.HEIGHT - this.height;
+            //this.x = 120;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {
-            if (this.y < this._leftBounds) {
-                this.y = this._leftBounds;
+            if (this.x < this._leftBounds) {
+                this.x = this._leftBounds;
             }
-            if (this.y > this._rightBounds) {
-                this.y = this._rightBounds;
+            if (this.x > this._rightBounds) {
+                this.x = this._rightBounds;
+            }
+            if (this.y < this._topBounds) {
+                this.y = this._topBounds;
+            }
+            if (this.y > this._bottomBounds) {
+                this.y = this._bottomBounds;
             }
         };
         // PUBLIC METHODS
         Player.prototype.update = function () {
             this.y = stage.mouseY;
+            this.x = stage.mouseX;
             this._checkBounds();
         };
         return Player;

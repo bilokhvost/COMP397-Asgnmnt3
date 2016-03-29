@@ -2,11 +2,11 @@ module objects {
     // SUPEREGG CLASS ++++++++++++++++++++++++++++++++++++
     export class SuperEgg extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
-        
+        private countFrame:number=0;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         constructor() {
             super("superegg");            
-           this._speed.x = -50; //superegg speed
+           this._speed.x = -30; //superegg speed         
            this._reset(this._rightBounds);
            this.name = "superegg";
         }
@@ -14,7 +14,7 @@ module objects {
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         protected _checkBounds(value:number):void {
             // check to see if the right part of the superegg is outside the viewport         
-            if(this.x <= value) {
+            if(Math.floor(value%100)==0) {
                 this._reset(this._rightBounds);
             }
         }
@@ -30,8 +30,10 @@ module objects {
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         public update():void {
             // scroll the egg 5 px per frame
-            this.x += this._speed.x;          
-            this._checkBounds(this._leftBounds);
+            this.x += this._speed.x; 
+                 this.countFrame+=0.5;   
+           // this._checkBounds(this._leftBounds);
+           this._checkBounds(this.countFrame);
         }
     }
 }

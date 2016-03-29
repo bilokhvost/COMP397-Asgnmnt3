@@ -4,6 +4,8 @@ module objects {
         // PRIVATE INSTANCE VARIABLES
         private _leftBounds: number;
         private _rightBounds: number;
+        private _topBounds: number;
+        private _bottomBounds: number;
 
         // PUBLIC INSTANCE VARIABLES
         public width: number;
@@ -18,19 +20,28 @@ module objects {
             this.regY = this.height * 0.5;
 
             this._leftBounds = this.height * 0.75;
-            this._rightBounds = config.Screen.HEIGHT - (this.height * 0.75);
+            this._rightBounds = config.Screen.WIDTH - (this.width * 0.75);
+            this._topBounds = 50;
+            this._bottomBounds = config.Screen.HEIGHT - this.height;
 
-            this.x = 120;
+            //this.x = 120;
         }
 
         // PRIVATE METHODS
         private _checkBounds(): void {
-            if (this.y < this._leftBounds) {
-                this.y = this._leftBounds;
+            if (this.x < this._leftBounds) {
+                this.x = this._leftBounds;
             }
 
-            if (this.y > this._rightBounds) {
-                this.y = this._rightBounds;
+            if (this.x > this._rightBounds) {
+                this.x = this._rightBounds;
+            }
+            if (this.y < this._topBounds) {
+                this.y = this._topBounds;
+            }
+
+            if (this.y > this._bottomBounds) {
+                this.y = this._bottomBounds;
             }
         }
 
@@ -38,6 +49,7 @@ module objects {
         // PUBLIC METHODS
         public update(): void {
             this.y = stage.mouseY;
+            this.x = stage.mouseX;
             this._checkBounds();
         }
     }

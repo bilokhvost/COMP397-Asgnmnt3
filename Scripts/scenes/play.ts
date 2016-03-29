@@ -5,11 +5,11 @@ module scenes {
         private _grass: objects.Grass;
         private _egg: objects.Egg;
         private _superegg: objects.SuperEgg;
-        private _clouds: objects.Cloud[];
-        private _cloudCount:number;
+        private _eagles: objects.Eagle[];
+        private _eagleCount:number;
         private _player: objects.Player;
         private _collision: managers.Collision;
-        
+      
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -20,11 +20,13 @@ module scenes {
         
         // Start Method
         public start(): void {
-            // Set Cloud Count
-            this._cloudCount = 3;
+            // Set Eagle Count
+            this._eagleCount = 3;
             
-            // Instantiate Cloud array
-            this._clouds = new Array<objects.Cloud>();
+      
+            
+            // Instantiate Eagle array
+            this._eagles = new Array<objects.Eagle>();
                 
             // added grass to the scene
             this._grass = new objects.Grass();
@@ -37,15 +39,16 @@ module scenes {
                  // added super egg to the scene
             this._superegg = new objects.SuperEgg();
             this.addChild(this._superegg);   
+          
 
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
             
-            //added clouds to the scene
-            for(var cloud:number = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
-               this.addChild(this._clouds[cloud]);
+            //added Eagles to the scene
+            for(var eagle:number = 0; eagle < this._eagleCount; eagle++) {
+                this._eagles[eagle] = new objects.Eagle();
+               this.addChild(this._eagles[eagle]);
             }
             
             // added collision manager to the scene
@@ -58,16 +61,16 @@ module scenes {
         // PLAY Scene updates here
         public update(): void {
             this._grass.update();
+               
             this._egg.update();
-            
-            
             this._superegg.update();
+                
            
             this._player.update();
            
-            this._clouds.forEach(cloud => {
-                cloud.update();
-                this._collision.check(cloud);
+            this._eagles.forEach(eagle => {
+                eagle.update();
+                this._collision.check(eagle);
             });
             
             this._collision.check(this._egg);

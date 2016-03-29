@@ -15,11 +15,11 @@ var assetData = [
     { id: "StartButton", src: "../../Assets/images/StartButton.png" },
     { id: "RestartButton", src: "../../Assets/images/RestartButton.png" },
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
-    { id: "grass", src: "../../Assets/images/grass2.gif" },
+    { id: "grass", src: "../../Assets/images/grass.gif" },
     { id: "rabbit", src: "../../Assets/images/rabbit.png" },
-    { id: "egg", src: "../../Assets/images/egg1.png" },
+    { id: "egg", src: "../../Assets/images/egg.png" },
     { id: "superegg", src: "../../Assets/images/superEgg.png" },
-    { id: "cloud", src: "../../Assets/images/eagle22.png" },
+    { id: "eagle", src: "../../Assets/images/eagle.png" },
 ];
 function preload() {
     assets = new createjs.LoadQueue();

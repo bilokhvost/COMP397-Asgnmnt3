@@ -5,38 +5,41 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // EGG CLASS ++++++++++++++++++++++++++++++++++++
-    var Egg = (function (_super) {
-        __extends(Egg, _super);
+    // EAGLE CLASS ++++++++++++++++++++++++++++++++++++
+    var Eagle = (function (_super) {
+        __extends(Eagle, _super);
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Egg() {
-            _super.call(this, "egg");
-            this._speed.x = -5; //egg speed
+        function Eagle() {
+            _super.call(this, "eagle");
             this._reset(this._rightBounds);
-            this.name = "egg";
+            this.name = "eagle";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Egg.prototype._checkBounds = function (value) {
-            // check to see if the right part of the egg is outside the viewport         
+        Eagle.prototype._checkBounds = function (value) {
+            // check to see if the top of the eagle is outside the viewport         
             if (this.x <= value) {
                 this._reset(this._rightBounds);
             }
         };
-        // reset the egg offscreen
-        Egg.prototype._reset = function (value) {
+        // reset the eagle offscreen
+        Eagle.prototype._reset = function (value) {
+            this._speed.x = Math.floor(Math.random() * 5) + 6;
+            this._speed.y = Math.floor(Math.random() * 4) - 2;
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds) + this._topBounds;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Egg.prototype.update = function () {
-            // scroll the egg 5 px per frame and check whether the egg is still visible
-            this.x += this._speed.x;
+        Eagle.prototype.update = function () {
+            // scroll the eagle down the screen and check wheather it is visible
+            this.x -= this._speed.x;
+            console.log(this._speed.y);
+            this.y += this._speed.y;
             this._checkBounds(this._leftBounds);
         };
-        return Egg;
+        return Eagle;
     }(objects.GameObject));
-    objects.Egg = Egg;
+    objects.Eagle = Eagle;
 })(objects || (objects = {}));
 
-//# sourceMappingURL=egg.js.map
+//# sourceMappingURL=eagle.js.map

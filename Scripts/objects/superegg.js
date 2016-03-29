@@ -8,18 +8,19 @@ var objects;
     // SUPEREGG CLASS ++++++++++++++++++++++++++++++++++++
     var SuperEgg = (function (_super) {
         __extends(SuperEgg, _super);
-        // PRIVATE INSTANCE VARIABLES +++++++++++++++++
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function SuperEgg() {
             _super.call(this, "superegg");
-            this._speed.x = -50; //superegg speed
+            // PRIVATE INSTANCE VARIABLES +++++++++++++++++
+            this.countFrame = 0;
+            this._speed.x = -30; //superegg speed         
             this._reset(this._rightBounds);
             this.name = "superegg";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         SuperEgg.prototype._checkBounds = function (value) {
             // check to see if the right part of the superegg is outside the viewport         
-            if (this.x <= value) {
+            if (Math.floor(value % 100) == 0) {
                 this._reset(this._rightBounds);
             }
         };
@@ -33,7 +34,9 @@ var objects;
         SuperEgg.prototype.update = function () {
             // scroll the egg 5 px per frame
             this.x += this._speed.x;
-            this._checkBounds(this._leftBounds);
+            this.countFrame += 0.5;
+            // this._checkBounds(this._leftBounds);
+            this._checkBounds(this.countFrame);
         };
         return SuperEgg;
     }(objects.GameObject));

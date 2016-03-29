@@ -11,7 +11,7 @@
 /// <reference path="../objects/grass.ts" />
 /// <reference path="../objects/egg.ts"/>
 /// <reference path="../objects/superegg.ts"/>
-/// <reference path="../objects/cloud.ts"/>
+/// <reference path="../objects/eagle.ts"/>
 /// <reference path="../objects/player.ts" />
 
 /// <reference path="../managers/collision.ts" />

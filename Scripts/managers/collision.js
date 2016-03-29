@@ -26,8 +26,12 @@ var managers;
                     console.log("egg hit!");
                 }
                 // check if it's a cloud hit
-                if (object.name === "cloud") {
-                    console.log("cloud hit!");
+                if (object.name === "eagle") {
+                    console.log("eagle hit!");
+                }
+                // check if it's a super egg hit
+                if (object.name === "superegg") {
+                    console.log("superegg hit!");
                 }
             }
         };
