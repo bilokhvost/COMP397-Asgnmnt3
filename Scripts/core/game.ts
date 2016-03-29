@@ -13,12 +13,13 @@ var scene: number;
 var menu: scenes.Menu;
 var play: scenes.Play;
 var end: scenes.End;
+var instructions: scenes.Instructions;
 
 var assetData:objects.Asset[] = [
     // Add your Assets here
-    {id: "StartButton", src:"../../Assets/images/StartButton.png"},
-    {id: "RestartButton", src:"../../Assets/images/RestartButton.png"},
-    {id: "BackButton", src:"../../Assets/images/BackButton.png"},
+    {id: "StartButton", src:"../../Assets/images/PlayButton.png"},
+    {id: "InstructionsButton", src:"../../Assets/images/InstructionsButton.png"},
+    {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
     {id: "grass", src:"../../Assets/images/grass.gif"},
     {id: "rabbit", src:"../../Assets/images/rabbit.png"},
     {id: "egg", src:"../../Assets/images/egg.png"},
@@ -103,7 +104,14 @@ function changeScene(): void {
             currentScene = menu;
             console.log("Starting MENU Scene");
             break;
-        case config.Scene.PLAY:
+        case config.Scene.INSTRUCTIONS:
+            // show the INSTRUCTIONS scene
+            stage.removeAllChildren();
+            instructions = new scenes.Instructions();
+            currentScene = instructions;
+            console.log("Starting INSTRUCTIONS Scene");
+            break;
+         case config.Scene.PLAY:
             // show the PLAY scene
             stage.removeAllChildren();
             play = new scenes.Play();

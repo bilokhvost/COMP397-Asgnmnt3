@@ -66,7 +66,6 @@ module scenes {
                 10,
                 25,
                 false);
-
             this.addChild(this._scoreText);
             
             //add lifeText label to the scene
@@ -95,6 +94,7 @@ module scenes {
             this._egg.update();
             this._superegg.update();
             this._player.update();
+            //if the player hits the eagle, 1 life is deducted
             this._eagles.forEach(eagle => {
                 eagle.update();
                 if (this._collision.check(eagle)) {
@@ -104,7 +104,7 @@ module scenes {
                     this._lifeText.text = "Lives: " + this._life;
                 }
             });
-        
+            //if the player hits the egg, add 10 points
             if (this._collision.check(this._egg)) {
                 this._score += 10;
                 this.removeChild(this._egg);
@@ -115,6 +115,7 @@ module scenes {
                 this.addChild(this._egg);
 
             }
+            //if the player hits the super egg, add 50 points and 10 lives
             if (this._collision.check(this._superegg)) {
                 this._score += 50;
                 this._life+=10;
