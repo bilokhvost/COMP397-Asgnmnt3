@@ -22,7 +22,8 @@ module objects {
         // reset the egg offscreen
         protected _reset(value:number):void {          
             this.x = value;
-            this.y = Math.floor(Math.random() * this._bottomBounds) - Math.floor(Math.random() * this._topBounds);           
+            this.y = Math.floor(Math.random() * this._bottomBounds) - Math.floor(Math.random() * this._topBounds); 
+            console.log(this._topBounds);          
         }
         
         

@@ -27,6 +27,7 @@ var objects;
         Egg.prototype._reset = function (value) {
             this.x = value;
             this.y = Math.floor(Math.random() * this._bottomBounds) - Math.floor(Math.random() * this._topBounds);
+            console.log(this._topBounds);
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Egg.prototype.update = function () {
