@@ -22,9 +22,9 @@ var scenes;
             // added grass to the scene
             this._grass = new objects.Grass();
             this.addChild(this._grass);
-            // added island to the scene
-            this._island = new objects.Island();
-            this.addChild(this._island);
+            // added egg to the scene
+            this._egg = new objects.Egg();
+            this.addChild(this._egg);
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
@@ -42,13 +42,13 @@ var scenes;
         Play.prototype.update = function () {
             var _this = this;
             this._grass.update();
-            this._island.update();
+            this._egg.update();
             this._player.update();
             this._clouds.forEach(function (cloud) {
                 cloud.update();
                 _this._collision.check(cloud);
             });
-            this._collision.check(this._island);
+            this._collision.check(this._egg);
         };
         return Play;
     }(objects.Scene));

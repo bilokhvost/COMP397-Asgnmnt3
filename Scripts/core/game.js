@@ -17,7 +17,7 @@ var assetData = [
     { id: "BackButton", src: "../../Assets/images/BackButton.png" },
     { id: "grass", src: "../../Assets/images/grass2.gif" },
     { id: "rabbit", src: "../../Assets/images/rabbit.png" },
-    { id: "island", src: "../../Assets/images/egg1.png" },
+    { id: "egg", src: "../../Assets/images/egg1.png" },
     { id: "cloud", src: "../../Assets/images/eagle22.png" },
 ];
 function preload() {

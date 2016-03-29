@@ -31,12 +31,14 @@ module managers {
                 
                 // check if it's an island hit
                 if(object.name === "island") {
+                  
                     console.log("island hit!");
                 }
                 
                 // check if it's a cloud hit
                 if(object.name === "cloud") {
                     console.log("cloud hit!");
+                    
                 }
             }
         }
