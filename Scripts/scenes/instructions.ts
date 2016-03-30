@@ -2,7 +2,7 @@
 module scenes {
     export class Instructions extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
-        private _menuLabel: objects.Label;
+        private _instructionsBackground: createjs.Bitmap;;
         private _startButton: objects.Button;
         
         // CONSTRUCTOR ++++++++++++++++++++++
@@ -14,13 +14,9 @@ module scenes {
         
         // Start Method
         public start(): void {
-            //Add Menu Label
-            this._menuLabel = new objects.Label(
-                "INSTRUCTIONS SCENE", "60px Consolas",
-                "#000000",
-                config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._menuLabel);
-            
+             //Add Instructions background
+              this._instructionsBackground = new createjs.Bitmap(assets.getResult("instructionsBackground"));
+            this.addChild(this._instructionsBackground);  
             
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(

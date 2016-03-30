@@ -6,6 +6,7 @@ var stage;
 var stats;
 var currentScene;
 var scene;
+var totalScore;
 // Game Scenes
 var menu;
 var play;
@@ -16,6 +17,8 @@ var assetData = [
     { id: "StartButton", src: "../../Assets/images/PlayButton.png" },
     { id: "InstructionsButton", src: "../../Assets/images/InstructionsButton.png" },
     { id: "menuBackground", src: "../../Assets/images/menuBackground.png" },
+    { id: "instructionsBackground", src: "../../Assets/images/instructionsBackground.jpg" },
+    { id: "endBackground", src: "../../Assets/images/endBackground.png" },
     { id: "grass", src: "../../Assets/images/grass.gif" },
     { id: "rabbit", src: "../../Assets/images/rabbit.png" },
     { id: "egg", src: "../../Assets/images/egg.png" },

@@ -8,6 +8,7 @@ var stats: Stats;
 
 var currentScene: objects.Scene;
 var scene: number;
+var totalScore:number;
 
 // Game Scenes
 var menu: scenes.Menu;
@@ -20,6 +21,8 @@ var assetData:objects.Asset[] = [
     {id: "StartButton", src:"../../Assets/images/PlayButton.png"},
     {id: "InstructionsButton", src:"../../Assets/images/InstructionsButton.png"},
     {id: "menuBackground", src:"../../Assets/images/menuBackground.png"},
+     {id: "instructionsBackground", src:"../../Assets/images/instructionsBackground.jpg"},
+     {id: "endBackground", src:"../../Assets/images/endBackground.png"},
     {id: "grass", src:"../../Assets/images/grass.gif"},
     {id: "rabbit", src:"../../Assets/images/rabbit.png"},
     {id: "egg", src:"../../Assets/images/egg.png"},

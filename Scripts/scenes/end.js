@@ -15,16 +15,16 @@ var scenes;
         // PUBLIC METHODS ++++++++++++++++++++
         // Start Method
         End.prototype.start = function () {
-            //  createjs.Sound.play("musicFinal", { loop: -1 });
-            //Add Menu Label
-            //this.score=Play._score;
-            this._endLabel = new objects.Label("SCORE: ", "60px Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
-            this.addChild(this._endLabel);
-            // add the BACK button to the OVER scene
-            this._restartButton = new objects.Button("RestartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
-            this.addChild(this._restartButton);
+            //Add End background
+            this._endBackground = new createjs.Bitmap(assets.getResult("endBackground"));
+            this.addChild(this._endBackground);
+            this._scoreText = new objects.Label("Score: " + totalScore.toString(), "35px Consolas", "#000000", config.Screen.CENTER_X + 30, config.Screen.CENTER_Y, false);
+            this.addChild(this._scoreText);
+            // add the PLAY button to the End scene
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this.addChild(this._startButton);
             // START_OVER Button event listener
-            this._restartButton.on("click", this._restartButtonClick, this);
+            this._startButton.on("click", this._startButtonClick, this);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -33,7 +33,7 @@ var scenes;
         };
         //EVENT HANDLERS ++++++++++++++++++++
         // START_OVER Button click event handler
-        End.prototype._restartButtonClick = function (event) {
+        End.prototype._startButtonClick = function (event) {
             // Switch to the INTRO Scene
             scene = config.Scene.MENU;
             changeScene();

@@ -94,6 +94,7 @@ var scenes;
         Play.prototype.checkLife = function (value) {
             if (value <= 0) {
                 createjs.Sound.play("eagleEat");
+                totalScore = this._score;
                 // Switch to the Game Over Scene
                 scene = config.Scene.END;
                 changeScene();
