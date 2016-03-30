@@ -1,4 +1,16 @@
-﻿// MENU SCENE
+﻿//*********************************************************************
+//Source file: menu.ts                                                *
+//Author name: Kateryna Bilokhvost                                    *
+//Initial commit: March 26, 2016                                      *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: March 29, 2016                                  *
+//Commit history: 13 commits, GitHub Link:                            *
+//https://github.com/bilokhvost/COMP397-Asgnmnt3/commits/master       *
+//Program description: This is a simple side scrolling 2D arcade game *
+// (left to right). The main purpose is to collect as many eggs as it *
+// possible and to avoid eagles that steal player’s health..          *
+//*********************************************************************
+// MENU SCENE
 module scenes {
     export class Menu extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
@@ -23,7 +35,7 @@ module scenes {
             // add the Start button to the MENU scene
             this._startButton = new objects.Button(
                 "StartButton",
-                config.Screen.CENTER_X+180,
+                config.Screen.CENTER_X+160,
                 config.Screen.CENTER_Y, false);
             this.addChild(this._startButton);
             
@@ -39,15 +51,13 @@ module scenes {
             this.addChild(this._instructionsButton);
             
             // Start Button event listener
-            this._instructionsButton.on("click", this._instructionsButtonClick, this);
-            
-            
+            this._instructionsButton.on("click", this._instructionsButtonClick, this);        
             
             // add this scene to the global stage container
             stage.addChild(this);
         }
 
-        // INTRO Scene updates here
+        // PLAY Scene updates here
         public update(): void {
 
         }
@@ -62,7 +72,7 @@ module scenes {
             changeScene();
         }
         
-         // START Button click event handler
+         // INSTRUCTIONS Button click event handler
         private _instructionsButtonClick(event: createjs.MouseEvent) {
             // Switch to the Instructions Scene
             scene = config.Scene.INSTRUCTIONS;

@@ -1,4 +1,16 @@
-﻿/// <reference path = "_reference.ts" />
+﻿//*********************************************************************
+//Source file: game.ts                                                *
+//Author name: Kateryna Bilokhvost                                    *
+//Initial commit: March 26, 2016                                      *
+//Last modified by: Kateryna Bilokhvost                               *
+//Last date modified: March 29, 2016                                  *
+//Commit history: 13 commits, GitHub Link:                            *
+//https://github.com/bilokhvost/COMP397-Asgnmnt3/commits/master       *
+//Program description: This is a simple side scrolling 2D arcade game *
+// (left to right). The main purpose is to collect as many eggs as it *
+// possible and to avoid eagles that steal player’s health..          *
+//*********************************************************************
+/// <reference path = "_reference.ts" />
 
 // global variables
 var assets: createjs.LoadQueue;

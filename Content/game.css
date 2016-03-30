@@ -1,12 +1,13 @@
 ﻿body {
-    background-color: darkgray;
+    background-image: url("../../Assets/images/mainBackground.png");
 }
 
 canvas {
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
-    margin-left: 10%;
+     margin-left: 25%;
+    margin-top: 15%;
     background-color: white;
 }
 
